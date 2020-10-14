@@ -14,3 +14,16 @@
 .header-logo{
   object-fit: contain;
 }
+
+.alt-div{
+  position: fixed;
+  bottom: 0px;
+  z-index: 5;
+  display: flex;
+  background-color: rgba(51,51,51,0.5);
+  width: 100%;
+}
+.upload-alt{
+  padding: 5px;
+  margin:auto
+}

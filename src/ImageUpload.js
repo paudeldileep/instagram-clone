@@ -98,12 +98,13 @@ const ImageUpload = ({username}) => {
           </Button>
         </Modal.Actions>
       </Modal>
-
+    <div className='upload-button'>
       <Button size='small' onClick={() => setOpen(true)}>
         <Button.Content>
           <Icon name='plus circle' size='big' />
         </Button.Content>
       </Button>
+      </div>
     </div>
   )
 }

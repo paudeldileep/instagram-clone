@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Modal, Button, Form } from "semantic-ui-react"
-
+import InstagramEmbed from 'react-instagram-embed';
 import "./App.css"
 import Post from "./Post"
 
@@ -177,7 +177,7 @@ function App() {
 
       {/*Image upload */}
       {user?.displayName ? (<ImageUpload username={user.displayName}/>):(
-        <h3>Please Login to Upload Images</h3>
+        <div className='alt-div'><h3 className='upload-alt'>Please Login to Upload Images</h3></div>
       )}
       
       {/* Header */}
@@ -217,7 +217,7 @@ function App() {
       </div>
 
       {/* Posts */}
-
+<div className='posts-div'>
       {posts.map(({ id, post }) => (
         <Post
           key={id}
@@ -226,7 +226,21 @@ function App() {
           caption={post.caption}
         />
       ))}
-
+</div>
+<div className='insta-div'>
+<InstagramEmbed
+  url='https://www.instagram.com/dileep_paudel/?hl=en'
+  maxWidth={320}
+  hideCaption={false}
+  containerTagName='div'
+  protocol=''
+  injectScript
+  onLoading={() => {}}
+  onSuccess={() => {}}
+  onAfterRender={() => {}}
+  onFailure={() => {}}
+/>
+</div>
       {/* Posts */}
     </div>
   )
