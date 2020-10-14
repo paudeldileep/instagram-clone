@@ -1,0 +1,6 @@
+.image-upload{
+    position: sticky;
+    bottom: 0px;
+    z-index: 5;
+    text-align: center;
+}

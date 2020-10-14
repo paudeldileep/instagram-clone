@@ -1,0 +1,16 @@
+
+.post{
+    max-width:500px;
+    background-color: white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.post-image{
+    width: 100%;
+    object-fit: contain;
+}
+.post-actions{
+    margin-top: 20px;
+}
