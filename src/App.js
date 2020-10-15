@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { Modal, Button, Form } from "semantic-ui-react"
-import InstagramEmbed from 'react-instagram-embed';
+import { Modal, Button, Form, Grid,} from "semantic-ui-react"
+
+import Sidebar from './Sidebar'
 import "./App.css"
 import Post from "./Post"
 
@@ -176,10 +177,14 @@ function App() {
       </Modal>
 
       {/*Image upload */}
-      {user?.displayName ? (<ImageUpload username={user.displayName}/>):(
-        <div className='alt-div'><h3 className='upload-alt'>Please Login to Upload Images</h3></div>
+      {user?.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ) : (
+        <div className='alt-div'>
+          <h3 className='upload-alt'>Please Login to Upload Images</h3>
+        </div>
       )}
-      
+
       {/* Header */}
       <div className='app-header'>
         <div className='header-logo'>
@@ -217,31 +222,24 @@ function App() {
       </div>
 
       {/* Posts */}
-<div className='posts-div'>
-      {posts.map(({ id, post }) => (
-        <Post
-          key={id}
-          username={post.username}
-          image={post.image}
-          caption={post.caption}
-        />
-      ))}
-</div>
-<div className='insta-div'>
-<InstagramEmbed
-  url='https://www.instagram.com/dileep_paudel/?hl=en'
-  maxWidth={320}
-  hideCaption={false}
-  containerTagName='div'
-  protocol=''
-  injectScript
-  onLoading={() => {}}
-  onSuccess={() => {}}
-  onAfterRender={() => {}}
-  onFailure={() => {}}
-/>
-</div>
-      {/* Posts */}
+      <Grid> <Grid.Column mobile={16} tablet={10} computer={10}>
+      <div className='posts-div'>
+        {posts.map(({ id, post }) => (
+          <Post
+            key={id}
+            postId={id}
+            user={user}
+            username={post.username}
+            image={post.image}
+            caption={post.caption}
+          />
+        ))}
+      </div>
+</Grid.Column>
+<Grid.Column mobile={16} tablet={6} computer={6}>
+      {/* sidebar */}
+      <div className='app-sidebar'>{posts && <Sidebar posts={posts} />}</div>
+      </Grid.Column></Grid>
     </div>
   )
 }

@@ -10,6 +10,7 @@ const ImageUpload = ({username}) => {
   const [image, setImage] = useState(null)
   const [progress, setProgress] = useState(0)
   const [caption, setCaption] = useState("")
+  const [open, setOpen] = useState(false)
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -49,6 +50,8 @@ const ImageUpload = ({username}) => {
             setProgress(0);
             setCaption("");
             setImage(null);
+            setOpen(false);
+
         })
 
     }
@@ -56,7 +59,7 @@ const ImageUpload = ({username}) => {
     }
   }
 
-  const [open, setOpen] = useState(false)
+  
   return (
     <div className='image-upload'>
       {/*Modal for image upload */}
